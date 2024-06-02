@@ -1,6 +1,7 @@
 numpy==1.26.4
 pandas==1.4.4
 streamlit
+streamlit-authenticator==0.1.5
 scikit-learn
 pip==22.2.2
 		

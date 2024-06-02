@@ -1,13 +1,6 @@
 # Capstone Project: Deteksi SMS Penipuan
 Proyek ini adalah aplikasi web untuk mendeteksi SMS penipuan menggunakan teknik machine learning. Aplikasi ini dibangun dengan menggunakan Streamlit dan dapat diakses di link ini.
 
-# Anggota Tim 19
-1. Aditya Priadi Pradana
-2. Marchel Ferry Timoteus S
-3. Riski Nur Rohman
-4. Linda Septiana
-5. Monixca Fernandes Awangga Tirta
-
 # Daftar Isi
 - Deskripsi
 - Fitur
@@ -31,7 +24,7 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 git clone https://github.com/username/capstone-project-deteksi-sms-penipuan.git
 
 2. Masuk ke direktori proyek:
-cd capstone-project-deteksi-sms-penipuan
+cd capstone-project
 
 3. Buat dan aktifkan virtual environment (opsional tapi disarankan):
 python -m venv env
@@ -41,7 +34,7 @@ source env/bin/activate  # Untuk Windows, gunakan `env\Scripts\activate`
 pip install -r requirements.txt
 
 5. Jalankan aplikasi:
-streamlit run app.py
+streamlit run stream_nlp.py
 
 # Penggunaan
 1. Buka aplikasi di browser Anda melalui link yang disediakan setelah menjalankan Streamlit.
@@ -49,16 +42,21 @@ streamlit run app.py
 3. Klik tombol "Deteksi" untuk mendapatkan hasil prediksi.
    
 # Struktur Proyek
-capstone-project-deteksi-sms-penipuan/
+..\capstone-project
 
-│
-├── app.py                  # File utama Streamlit
-├── model.pkl               # Model machine learning yang telah dilatih
-├── requirements.txt        # Daftar dependensi Python
-├── README.md               # Dokumentasi proyek
-└── data/
-    └── clean_data.csv        # Dataset
-    
+    README.md                        # Dokumentasi project
+    clean_data.csv                   # Cleaned-Dataset
+    dataset_sms_spam_v1.csv          # Raw dataset
+    feature_tf-idf.sav               # 
+    key_norm.csv                     # Kata kunci utk kata singkatan
+    model_fraud.sav                  # Model deteksi penipuan yang sudah dilatih
+    new_selected_feature_tf-idf.sav  # pre-defined vocabulary 
+    nlp.ipynb                        # File jupyter notebook model machine learning
+    requirements.txt                 # Daftar dependensi python
+    stream_nlp.py                    # File utama Streamlit
+    generate_keys.py                 # Generate hashed key program
+    hashed_pw.pkl                    # Hashed password user authentification
+
 # Kontribusi
 Kami sangat menghargai kontribusi dari komunitas. Jika Anda ingin berkontribusi, silakan fork repositori ini, buat branch baru, dan ajukan pull request. Langkah-langkah kontribusi:
 1. Fork repositori ini.
