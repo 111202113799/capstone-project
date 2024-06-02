@@ -14,7 +14,7 @@ with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-    "SMS Fraud Detection", "abcdef", cookie_expiry_days=30)
+    "Prediksi SMS Penipuan", "abcdef", cookie_expiry_days=30)
 
 name, authentication_status, username = authenticator.login("Login", "main")
 
@@ -22,7 +22,7 @@ if authentication_status == False:
     st.error("Username/password is incorrect")
 
 if authentication_status == None:
-    st.warning("Please enter your username and password")
+    st.warning("Silahkan masukkan username dan password")
     
 if authentication_status:
     
