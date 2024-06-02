@@ -1,6 +1,14 @@
 # Capstone Project: Deteksi SMS Penipuan
 Proyek ini adalah aplikasi web untuk mendeteksi SMS penipuan menggunakan teknik machine learning. Aplikasi ini dibangun dengan menggunakan Streamlit dan dapat diakses di link ini.
 
+**Anggota Tim 19**
+
+1. Aditya Priadi Pradana
+2. Marchel Ferry Timoteus S
+3. Riski Nur Rohman
+4. Linda Septiana
+5. Monixca Fernandes Awangga Tirta
+
 # Daftar Isi
 - Deskripsi
 - Fitur
