@@ -47,6 +47,7 @@ streamlit run stream-nlp.py (bisa langsung diakses)
 
 6. Login
 username : "appradana", "mfsamosir", "rnrohman", "lsana", "mfatirta"
+
 password : abc123
 
 # Penggunaan
