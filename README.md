@@ -42,7 +42,12 @@ source env/bin/activate  # Untuk Windows, gunakan `env\Scripts\activate`
 pip install -r requirements.txt
 
 5. Jalankan aplikasi:
-streamlit run stream_nlp.py
+streamlit run stream_nlp.py (untuk yang ada tampilan login)
+streamlit run stream-nlp.py (bisa langsung diakses)
+
+6. Login
+username : "appradana", "mfsamosir", "rnrohman", "lsana", "mfatirta"
+password : abc123
 
 # Penggunaan
 1. Buka aplikasi di browser Anda melalui link yang disediakan setelah menjalankan Streamlit.
