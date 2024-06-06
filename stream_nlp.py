@@ -4,6 +4,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from pathlib import Path
 import streamlit_authenticator as stauth
 
+def clear_cache():
+    keys = list(st.session_state.keys())
+    for key in keys:
+        st.session_state.pop(key)
+
 # --- USER AUTHENTICATION ---
 names = ["Aditya Priadi Pradana", "Marchel Ferry Timoteus S", "Riski Nur Rohman", "Linda Septiana", "Monixca Fernandes Awangga Tirta"]
 usernames = ["appradana", "mfsamosir", "rnrohman", "lsana", "mfatirta"]
@@ -15,14 +20,10 @@ with file_path.open("rb") as file:
 
     
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-                                    "SMS Fraud Detection", "abcdef", cookie_expiry_days=1)
+    "SMS Fraud Detection", "abcdef", cookie_expiry_days=30)
 
-# Add a guest login option
-guest_mode = st.button("Continue as Guest" )
-if guest_mode:
-    authentication_status = "guest"  # Set a unique value for guest login
-else:
-    name, authentication_status, username = authenticator.login("Login", "main")
+
+name, authentication_status, username = authenticator.login("Login", "main")
 
 
 if authentication_status == False:
@@ -31,16 +32,9 @@ if authentication_status == False:
 if authentication_status == None:
    st.warning("Please enter your username and password")
  
-if authentication_status or authentication_status == "guest": 
-        
-        # Valid user login, proceed with full functionality
-    if authentication_status == "guest":
-        st.sidebar.title(f"Welcome guest")
-        st.title('Prediksi SMS Penipuan')    
-        
-    else:
-        st.sidebar.title(f"Welcome {name}")
-        st.title('Prediksi SMS Penipuan')
+if authentication_status: 
+    st.sidebar.title(f"Welcome {name}")    
+    st.title('Prediksi SMS Penipuan')
 
     # --- MAIN PROGRAM ---
     
@@ -50,7 +44,9 @@ if authentication_status or authentication_status == "guest":
      # load save model   
     
     model_fraud = pickle.load(open('model_fraud.sav', 'rb'))
+    
     tfidf = TfidfVectorizer
+    
     loaded_vec = TfidfVectorizer(decode_error="replace", vocabulary=set(pickle.load(open("new_selected_feature_tf-idf.sav", "rb"))))
 
     # judul halaman
@@ -69,7 +65,6 @@ if authentication_status or authentication_status == "guest":
             fraud_detection = 'SMS Promo'
     st.success(fraud_detection)
     
-    authenticator.logout("Logout", "sidebar")
-    if authentication_status == "Logout":
-        st.cache_data.clear()  # Clear cache on logout
-        st.cache_resource.clear()
+    if st.button('Logout', on_click=clear_cache):
+       st.cache_data.clear()  # Clear cache on logout
+       st.cache_resource.clear()
