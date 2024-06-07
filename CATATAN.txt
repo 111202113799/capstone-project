@@ -1,0 +1,7 @@
+Jalankan aplikasi:
+streamlit run stream_nlp.py (untuk yang ada tampilan login)
+streamlit run stream-nlp.py (bisa langsung diakses)
+
+Login :
+username : "appradana", "mfsamosir", "rnrohman", "lsana", "mfatirta"
+password : abc123
